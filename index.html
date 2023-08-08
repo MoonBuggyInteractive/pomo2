@@ -1,0 +1,89 @@
+<div class="progress-container">
+    <svg class="progress-ring" width="200" height="200">
+        <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
+        <circle class="progress-ring__value" stroke="blue" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
+    </svg>
+    <div class="controls">
+        <div class="time">0:00</div>
+        <button class="play-btn">Play</button>
+        <button class="reset-btn">Reset</button>
+    </div>
+</div>
+.progress-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-ring__circle, .progress-ring__value {
+    stroke-linecap: round;
+}
+
+.progress-ring__value {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+let duration = 60; // in seconds
+let elapsed = 0;
+let interval;
+const playBtn = document.querySelector('.play-btn');
+const resetBtn = document.querySelector('.reset-btn');
+const timeEl = document.querySelector('.time');
+const progressValue = document.querySelector('.progress-ring__value');
+
+function setProgress(value) {
+    const circumference = 2 * Math.PI * 98; 
+    const offset = circumference - (value / 100 * circumference);
+    progressValue.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressValue.style.strokeDashoffset = offset;
+}
+
+playBtn.addEventListener('click', function() {
+    if (playBtn.innerText === "Play") {
+        playBtn.innerText = "Pause";
+        interval = setInterval(function() {
+            elapsed++;
+            if (elapsed > duration) {
+                clearInterval(interval);
+                playBtn.innerText = "Play";
+                return;
+            }
+            let min = Math.floor(elapsed / 60);
+            let sec = elapsed % 60;
+            timeEl.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+            setProgress((elapsed / duration) * 100);
+        }, 1000);
+    } else {
+        clearInterval(interval);
+        playBtn.innerText = "Play";
+    }
+});
+
+resetBtn.addEventListener('click', function() {
+    clearInterval(interval);
+    elapsed = 0;
+    timeEl.innerText = "0:00";
+    setProgress(0);
+    playBtn.innerText = "Play";
+});

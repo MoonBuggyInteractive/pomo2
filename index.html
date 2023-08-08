@@ -1,89 +1,32 @@
-<div class="progress-container">
-    <svg class="progress-ring" width="200" height="200">
-        <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
-        <circle class="progress-ring__value" stroke="blue" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
-    </svg>
-    <div class="controls">
-        <div class="time">0:00</div>
-        <button class="play-btn">Play</button>
-        <button class="reset-btn">Reset</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Game Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nasalization&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="progress-container">
+        <svg class="progress-ring" width="200" height="200">
+            <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
+            <circle class="progress-ring__value" stroke="#C0C0C0" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
+        </svg>
+        <div class="controls">
+            <div class="time">1:00</div>
+            <div class="icons-row">
+                <i class="fas fa-play play-btn"></i>
+                <i class="fas fa-redo reset-btn"></i>
+            </div>
+            <div class="score"><span class="score-value">0</span> PTS</div>
+        </div>
     </div>
-</div>
-.progress-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
-}
-
-.progress-ring {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.progress-ring__circle, .progress-ring__value {
-    stroke-linecap: round;
-}
-
-.progress-ring__value {
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-}
-
-.controls {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.time {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-let duration = 60; // in seconds
-let elapsed = 0;
-let interval;
-const playBtn = document.querySelector('.play-btn');
-const resetBtn = document.querySelector('.reset-btn');
-const timeEl = document.querySelector('.time');
-const progressValue = document.querySelector('.progress-ring__value');
-
-function setProgress(value) {
-    const circumference = 2 * Math.PI * 98; 
-    const offset = circumference - (value / 100 * circumference);
-    progressValue.style.strokeDasharray = `${circumference} ${circumference}`;
-    progressValue.style.strokeDashoffset = offset;
-}
-
-playBtn.addEventListener('click', function() {
-    if (playBtn.innerText === "Play") {
-        playBtn.innerText = "Pause";
-        interval = setInterval(function() {
-            elapsed++;
-            if (elapsed > duration) {
-                clearInterval(interval);
-                playBtn.innerText = "Play";
-                return;
-            }
-            let min = Math.floor(elapsed / 60);
-            let sec = elapsed % 60;
-            timeEl.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
-            setProgress((elapsed / duration) * 100);
-        }, 1000);
-    } else {
-        clearInterval(interval);
-        playBtn.innerText = "Play";
-    }
-});
-
-resetBtn.addEventListener('click', function() {
-    clearInterval(interval);
-    elapsed = 0;
-    timeEl.innerText = "0:00";
-    setProgress(0);
-    playBtn.innerText = "Play";
-});
+    <div class="reset-score-container">
+        <span class="reset-score-text">Reset Score</span>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

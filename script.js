@@ -1,5 +1,5 @@
-let duration = 60;
-let elapsed = 60;
+let duration = 1500; // 25 minutes in seconds
+let elapsed = 1500;
 let interval;
 let score = 0;
 let potentialScore = 0;

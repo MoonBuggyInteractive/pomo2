@@ -1,4 +1,4 @@
-let duration = 1500; // 25 minutes in seconds
+let duration = 1500;
 let elapsed = 1500;
 let interval;
 let score = 0;
@@ -53,8 +53,8 @@ playBtn.addEventListener('click', function() {
                 score += potentialScore; 
                 potentialScore = 0;
                 localStorage.setItem('score', score);
-                elapsed = 60;
-                timeEl.innerText = "1:00";
+                elapsed = 1500;
+                timeEl.innerText = "25:00";
                 setProgress(100);
                 playBtn.classList.remove("fa-pause");
                 playBtn.classList.add("fa-play");
@@ -69,8 +69,8 @@ playBtn.addEventListener('click', function() {
 
 resetBtn.addEventListener('click', function() {
     clearInterval(interval);
-    elapsed = 60;
-    timeEl.innerText = "1:00";
+    elapsed = 1500;
+    timeEl.innerText = "25:00";
     setProgress(100);
     potentialScore = 0;
     scoreEl.innerText = score;
@@ -78,7 +78,7 @@ resetBtn.addEventListener('click', function() {
     playBtn.classList.add("fa-play");
 });
 
-document.querySelector('.reset-score-btn').addEventListener('click', function() {
+document.querySelector('.reset-score-text').addEventListener('click', function() {
     score = 0;
     scoreEl.innerText = score;
     localStorage.setItem('score', score);

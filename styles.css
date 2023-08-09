@@ -1,28 +1,39 @@
 body {
     font-family: 'Bungee', sans-serif;
+    background-color: transparent;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+
+.main-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #C0C0C0;  /* Silver-like color for a moonbase feel */
-    background-color: transparent;
-    text-transform: uppercase;  /* All text in uppercase */
+    color: #C0C0C0;  /* Setting the color here for all child elements */
 }
 
 .progress-container {
     position: relative;
-    width: 200px;
-    height: 200px;
-    background-color: #333333;  /* Dark gray */
-    border: 5px solid #555555;  /* Lighter gray */
+    width: 210px;
+    height: 210px;
+    background-color: #333333;
+    border: 5px solid #555555;
     border-radius: 50%;
-    margin-bottom: 20px;  /* Add space between the progress bar and the reset score text */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .progress-ring {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
 }
 
 .progress-ring__circle, .progress-ring__value {
@@ -67,7 +78,7 @@ body {
 }
 
 .play-btn:hover, .reset-btn:hover {
-    color: #808080;  /* Gray for hover effect */
+    color: #808080;
 }
 
 .icons-row {
@@ -84,11 +95,11 @@ body {
 
 .reset-score-text {
     font-size: 1em;
-    color: #C0C0C0;  /* Silver-like color */
+    color: #C0C0C0;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .reset-score-text:hover {
-    color: #808080;  /* Gray for hover effect */
+    color: #808080;
 }

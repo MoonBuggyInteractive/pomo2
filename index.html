@@ -10,22 +10,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="progress-container">
-        <svg class="progress-ring" width="200" height="200">
-            <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
-            <circle class="progress-ring__value" stroke="#C0C0C0" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
-        </svg>
-        <div class="controls">
-            <div class="time">1:00</div>
-            <div class="icons-row">
-                <i class="fas fa-play play-btn"></i>
-                <i class="fas fa-redo reset-btn"></i>
+    <div class="main-container">
+        <div class="progress-container">
+            <svg class="progress-ring" width="200" height="200">
+                <circle class="progress-ring__circle" stroke="grey" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
+                <circle class="progress-ring__value" stroke="#C0C0C0" stroke-width="4" fill="transparent" r="98" cx="100" cy="100"></circle>
+            </svg>
+            <div class="controls">
+                <div class="time">1:00</div>
+                <div class="icons-row">
+                    <i class="fas fa-play play-btn"></i>
+                    <i class="fas fa-redo reset-btn"></i>
+                </div>
+                <div class="score"><span class="score-value">0</span> PTS</div>
             </div>
-            <div class="score"><span class="score-value">0</span> PTS</div>
         </div>
-    </div>
-    <div class="reset-score-container">
-        <span class="reset-score-text">Reset Score</span>
+        <div class="reset-score-container">
+            <span class="reset-score-text">Reset Score</span>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

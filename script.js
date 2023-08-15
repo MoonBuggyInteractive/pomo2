@@ -3,7 +3,11 @@ let elapsed = 1500;
 let interval;
 let score = 0;
 let potentialScore = 0;
+let tasksCompleted = 0;
+let missionsCompleted = 0;
 
+const tasksCompletedEl = document.querySelector('.tasks-completed');
+const missionsCompletedEl = document.querySelector('.missions-completed');
 const playBtn = document.querySelector('.play-btn');
 const resetBtn = document.querySelector('.reset-btn');
 const timeEl = document.querySelector('.time');
@@ -58,7 +62,14 @@ playBtn.addEventListener('click', function() {
                 setProgress(100);
                 playBtn.classList.remove("fa-pause");
                 playBtn.classList.add("fa-play");
+                tasksCompleted++;
+                tasksCompletedEl.innerText = tasksCompleted;
             }
+            if (score >= 300 && missionsCompleted == 0) {
+            missionsCompleted++;
+            missionsCompletedEl.innerText = missionsCompleted;
+            }
+
         }, 200);
     } else {
         playBtn.classList.remove("fa-pause");

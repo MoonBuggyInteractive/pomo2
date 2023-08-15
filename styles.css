@@ -100,6 +100,18 @@ body {
     transition: color 0.3s ease;
 }
 
+.tasks-completed-container, .missions-completed-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: #C0C0C0;
+}
+
+.tasks-completed-container span, .missions-completed-container span {
+    margin-right: 5px;
+}
+
+
 .reset-score-text:hover {
     color: #808080;
 }

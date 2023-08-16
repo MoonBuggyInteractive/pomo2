@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #C0C0C0;
+    color: #C0C0C0;  /* Setting the color here for all child elements */
 }
 
 .mission-container {
@@ -27,24 +27,29 @@ body {
 
 .mission-dialogue {
     font-size: 1em;
-    margin-top: 5px;
+    margin-bottom: 5px;
     display: flex;
     justify-content: center;
     color: #C0C0C0;
 }
 
-.mission-progress-bar-container {
-    width: 210px;
-    height: 20px;
+.mission-progress {
+    width: 100%;
     background-color: grey;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    height: 10px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .mission-progress-bar {
-    height: 100%;
     background-color: #C0C0C0;
-    border-radius: 10px;
+    height: 100%;
+    width: 0%; /* Initial width, will be updated dynamically */
+}
+
+.spacer {
+    height: 10px; /* Adjust this value to control the space */
 }
 
 .progress-container {
@@ -55,7 +60,6 @@ body {
     border: 5px solid #555555;
     border-radius: 50%;
     margin-bottom: 20px;
-    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -147,4 +151,11 @@ body {
 
 .reset-score-text:hover {
     color: #808080;
+}
+
+.mission-progress-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Take full width of the parent container */
 }

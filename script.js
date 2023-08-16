@@ -1,4 +1,4 @@
-const TOTAL_TIME = 10; 
+const TOTAL_TIME = 1500; 
 
 let duration = TOTAL_TIME;
 let elapsed = TOTAL_TIME;
@@ -22,12 +22,12 @@ const missions = [
     {
         name: "Journey to the Moon",
         dialogue: "Travel to the moon aboard your spaceship.",
-        pointsRequired: 50
+        pointsRequired: 45000
     },
     {
         name: "Build a base on the moon",
         dialogue: "Establish a permanent presence on the moon.",
-        pointsRequired: 100
+        pointsRequired: 90000
     },
     // ... more missions can be added here in the future
 ];

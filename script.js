@@ -68,17 +68,19 @@ playBtn.addEventListener('click', function() {
                 let min = Math.floor(elapsed / 60);
                 let sec = elapsed % 60;
                 timeEl.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
-                
-                let missionStartScore = currentMissionIndex > 0 ? missions[currentMissionIndex - 1].pointsRequired : 0;
-                let currentMissionScore = score - missionStartScore;
-                let missionRequiredScore = missions[currentMissionIndex].pointsRequired - missionStartScore;
-                
-                let progressPercentage = (currentMissionScore / missionRequiredScore) * 100;
-                missionProgressBar.style.width = `${progressPercentage}%`;
             }
 
-            let progressPercentage = (1 - (msElapsed / (duration * 1000))) * 100;
-            setProgress(progressPercentage);
+            // Calculate the progress percentage and update every 200ms
+            let radialProgressPercentage = (1 - (msElapsed / (duration * 1000))) * 100;
+            setProgress(radialProgressPercentage);
+
+            // Update mission progress bar
+            let missionStartScore = currentMissionIndex > 0 ? missions[currentMissionIndex - 1].pointsRequired : 0;
+            let currentMissionScore = score + potentialScore - missionStartScore;
+            let missionRequiredScore = missions[currentMissionIndex].pointsRequired - missionStartScore;
+
+            let missionProgressPercentage = (currentMissionScore / missionRequiredScore) * 100;
+            missionProgressBar.style.width = `${missionProgressPercentage}%`;
 
             if (elapsed <= 0) {
                 clearInterval(interval);

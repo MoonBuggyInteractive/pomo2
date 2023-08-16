@@ -11,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-height: 600px;
     max-height: 100vh; /* set a maximum height */
     color: #C0C0C0;
     overflow: auto;
@@ -34,8 +35,8 @@ body {
 
 .progress-container {
     position: relative;
-    width: 50vw;  /* 50% of viewport width, adjust if needed */
-    height: 50vw; /* same as width to maintain aspect ratio */
+    width: 50vh;  /* now based on viewport height */
+    height: 50vh; /* same as width to maintain aspect ratio */
     max-width: 210px; /* prevent it from becoming too big on wide screens */
     max-height: 210px; /* same as max-width to maintain aspect ratio */
     background-color: #333333;
@@ -46,6 +47,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 
 

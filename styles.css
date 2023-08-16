@@ -15,7 +15,8 @@ body {
 }
 
 .mission-container {
-    margin-bottom: 20px;
+    width: 210px;
+    margin-bottom: 10px; /* reduce margin to bring closer to radial progress */
     text-align: center;
     color: #C0C0C0;
 }
@@ -27,7 +28,7 @@ body {
 
 .mission-dialogue {
     font-size: 1em;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* increase margin to space out from progress bar */
     display: flex;
     justify-content: center;
     color: #C0C0C0;
@@ -36,20 +37,11 @@ body {
 .mission-progress {
     width: 100%;
     background-color: grey;
-    height: 10px;
+    height: 10px; /* set a height to ensure visibility */
     position: relative;
     border-radius: 5px;
     overflow: hidden;
-}
-
-.mission-progress-bar {
-    background-color: #C0C0C0;
-    height: 100%;
-    width: 0%; /* Initial width, will be updated dynamically */
-}
-
-.spacer {
-    height: 10px; /* Adjust this value to control the space */
+    margin-bottom: 10px; /* add some margin to space out from radial progress */
 }
 
 .progress-container {
@@ -125,17 +117,6 @@ body {
     width: 100%;
 }
 
-.tasks-completed-container, .missions-completed-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    color: #C0C0C0;
-}
-
-.tasks-completed-container span, .missions-completed-container span {
-    margin-right: 5px;
-}
-
 .reset-score-container {
     margin-top: 20px;
     display: flex;
@@ -149,13 +130,17 @@ body {
     transition: color 0.3s ease;
 }
 
-.reset-score-text:hover {
-    color: #808080;
-}
-
-.mission-progress-bar-container {
+.tasks-completed-container, .missions-completed-container {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%; /* Take full width of the parent container */
+    color: #C0C0C0;
+}
+
+.tasks-completed-container span, .missions-completed-container span {
+    margin-right: 5px;
+}
+
+.reset-score-text:hover {
+    color: #808080;
 }

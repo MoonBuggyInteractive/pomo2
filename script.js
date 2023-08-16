@@ -8,6 +8,8 @@ let missionsCompleted = 0;
 
 const tasksCompletedEl = document.querySelector('.tasks-completed');
 const missionsCompletedEl = document.querySelector('.missions-completed');
+const missionNameEl = document.querySelector('.mission-name');
+const missionDialogueEl = document.querySelector('.mission-dialogue');
 const playBtn = document.querySelector('.play-btn');
 const resetBtn = document.querySelector('.reset-btn');
 const timeEl = document.querySelector('.time');
@@ -19,6 +21,8 @@ window.onload = function() {
     if (savedScore) {
         score = parseInt(savedScore);
         scoreEl.innerText = score;
+    missionNameEl.innerText = missions[currentMissionIndex].name;
+    missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
     }
 };
 
@@ -28,6 +32,21 @@ function setProgress(value) {
     progressValue.style.strokeDasharray = `${circumference} ${circumference}`;
     progressValue.style.strokeDashoffset = offset;
 }
+
+if (score >= missions[currentMissionIndex].pointsRequired && missionsCompleted == currentMissionIndex) {
+    missionsCompleted++;
+    missionsCompletedEl.innerText = missionsCompleted;
+    
+    currentMissionIndex++;
+    if (currentMissionIndex < missions.length) {
+        missionNameEl.innerText = missions[currentMissionIndex].name;
+        missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
+    } else {
+        missionNameEl.innerText = "All missions completed!";
+        missionDialogueEl.innerText = "";
+    }
+}
+
 
 playBtn.addEventListener('click', function() {
     if (playBtn.classList.contains("fa-play")) {

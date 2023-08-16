@@ -138,3 +138,18 @@ body {
 .reset-score-text:hover {
     color: #808080;
 }
+
+.mission-progress-container {
+    width: 80%;
+    height: 20px;
+    background-color: grey;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.mission-progress-bar {
+    height: 100%;
+    width: 0%;  /* Initially, no progress */
+    background-color: #C0C0C0;
+}

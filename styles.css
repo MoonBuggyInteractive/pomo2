@@ -32,13 +32,13 @@ body {
 }
 
 .mission-progress {
-    width: 210px;
+    width: 210px; 
     background-color: grey;
     height: 10px;
     position: relative;
     border-radius: 5px;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin: 10px auto; /* Centering the progress bar */
 }
 
 .mission-progress-bar {
@@ -46,7 +46,7 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 50%;  /* Just setting an initial width to check visibility */
+    width: 0%;  /* Setting initial width to 0 */
     background-color: #C0C0C0;
     transition: width 0.5s;
 }

@@ -121,4 +121,16 @@ document.querySelector('.reset-score-text').addEventListener('click', function()
     score = 0;
     scoreEl.innerText = score;
     localStorage.setItem('score', score);
+
+    // Reset missions and tasks counters
+    missionsCompleted = 0;
+    missionsCompletedEl.innerText = missionsCompleted;
+    tasksCompleted = 0;
+    tasksCompletedEl.innerText = tasksCompleted;
+
+    // Reset current mission index and display the first mission's name and dialogue
+    currentMissionIndex = 0;
+    missionNameEl.innerText = missions[currentMissionIndex].name;
+    missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
 });
+

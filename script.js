@@ -18,18 +18,18 @@ const timeEl = document.querySelector('.time');
 const progressValue = document.querySelector('.progress-ring__value');
 const scoreEl = document.querySelector('.score-value');
 const missionProgressBar = document.querySelector('.mission-progress-bar');
+const leftIconEl = document.querySelector('.mission-icon-left');
+const rightIconEl = document.querySelector('.mission-icon-right');
 
 const missions = [
     {
         name: "Journey to the Moon",
         dialogue: "Travel to the moon aboard your spaceship.",
-        pointsRequired: 45000
+        pointsRequired: 45000,
+        leftIcon: "fa-regular fa-earth-americas",
+        rightIcon: "fa-sharp fa-solid fa-moon"
     },
-    {
-        name: "Build a base on the moon",
-        dialogue: "Establish a permanent presence on the moon.",
-        pointsRequired: 90000
-    }
+    // ... other missions
 ];
 
 let currentMissionIndex = 0;
@@ -42,6 +42,8 @@ window.onload = function() {
     }
     missionNameEl.innerText = missions[currentMissionIndex].name;
     missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
+    leftIconEl.className = missions[currentMissionIndex].leftIcon;
+    rightIconEl.className = missions[currentMissionIndex].rightIcon;
 };
 
 function setProgress(value) {
@@ -104,6 +106,8 @@ playBtn.addEventListener('click', function() {
                 if (currentMissionIndex < missions.length) {
                     missionNameEl.innerText = missions[currentMissionIndex].name;
                     missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
+                    leftIconEl.className = missions[currentMissionIndex].leftIcon;
+                    rightIconEl.className = missions[currentMissionIndex].rightIcon;
                 } else {
                     missionNameEl.innerText = "All missions completed!";
                     missionDialogueEl.innerText = "";
@@ -144,4 +148,6 @@ document.querySelector('.reset-score-text').addEventListener('click', function()
     currentMissionIndex = 0;
     missionNameEl.innerText = missions[currentMissionIndex].name;
     missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
+    leftIconEl.className = missions[currentMissionIndex].leftIcon;
+    rightIconEl.className = missions[currentMissionIndex].rightIcon;
 });

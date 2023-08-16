@@ -31,8 +31,10 @@ body {
 
 .progress-container {
     position: relative;
-    width: 210px;
-    height: 210px;
+    width: 100%;   /* Use full width up to a maximum */
+    max-width: 210px;  /* This prevents the container from growing too wide */
+    height: 0;    /* Set height to zero */
+    padding-bottom: 100%; /* This is where the magic happens. The container will maintain its aspect ratio */
     background-color: #333333;
     border: 5px solid #555555;
     border-radius: 50%;
@@ -41,6 +43,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 
 .progress-ring {
     position: absolute;

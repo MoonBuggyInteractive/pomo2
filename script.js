@@ -17,6 +17,7 @@ const resetBtn = document.querySelector('.reset-btn');
 const timeEl = document.querySelector('.time');
 const progressValue = document.querySelector('.progress-ring__value');
 const scoreEl = document.querySelector('.score-value');
+const missionProgressBar = document.querySelector('.mission-progress-bar');
 
 const missions = [
     {
@@ -28,8 +29,7 @@ const missions = [
         name: "Build a base on the moon",
         dialogue: "Establish a permanent presence on the moon.",
         pointsRequired: 90000
-    },
-    // ... more missions can be added here in the future
+    }
 ];
 
 let currentMissionIndex = 0;
@@ -68,9 +68,15 @@ playBtn.addEventListener('click', function() {
                 let min = Math.floor(elapsed / 60);
                 let sec = elapsed % 60;
                 timeEl.innerText = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+                
+                let missionStartScore = currentMissionIndex > 0 ? missions[currentMissionIndex - 1].pointsRequired : 0;
+                let currentMissionScore = score - missionStartScore;
+                let missionRequiredScore = missions[currentMissionIndex].pointsRequired - missionStartScore;
+                
+                let progressPercentage = (currentMissionScore / missionRequiredScore) * 100;
+                missionProgressBar.style.width = `${progressPercentage}%`;
             }
 
-            // Calculate the progress percentage and update every 200ms
             let progressPercentage = (1 - (msElapsed / (duration * 1000))) * 100;
             setProgress(progressPercentage);
 
@@ -137,4 +143,3 @@ document.querySelector('.reset-score-text').addEventListener('click', function()
     missionNameEl.innerText = missions[currentMissionIndex].name;
     missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
 });
-

@@ -12,17 +12,50 @@ body {
     align-items: center;
     height: 100vh;
     color: #C0C0C0;
-    width: 220px; /* Ensuring all inner elements have this width for consistency */
+}
+
+.mission-container {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #C0C0C0;
+}
+
+.mission-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.mission-dialogue {
+    font-size: 1em;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    color: #C0C0C0;
+}
+
+.mission-progress-bar-container {
+    width: 210px;
+    height: 20px;
+    background-color: grey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.mission-progress-bar {
+    height: 100%;
+    background-color: #C0C0C0;
+    border-radius: 10px;
 }
 
 .progress-container {
+    position: relative;
     width: 210px;
     height: 210px;
     background-color: #333333;
     border: 5px solid #555555;
     border-radius: 50%;
     margin-bottom: 20px;
-    margin-top: 10px;  /* This is the spacer between the mission progress bar and the radial progress bar */
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,6 +121,17 @@ body {
     width: 100%;
 }
 
+.tasks-completed-container, .missions-completed-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: #C0C0C0;
+}
+
+.tasks-completed-container span, .missions-completed-container span {
+    margin-right: 5px;
+}
+
 .reset-score-container {
     margin-top: 20px;
     display: flex;
@@ -101,51 +145,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.tasks-completed-container, .missions-completed-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    color: #C0C0C0;
-}
-
-.tasks-completed-container span, .missions-completed-container span {
-    margin-right: 5px;
-}
-
 .reset-score-text:hover {
     color: #808080;
-}
-
-.mission-container {
-    margin-top: 20px;
-    text-align: center;
-    color: #C0C0C0;
-}
-
-.mission-title {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
-.mission-dialogue {
-    font-size: 1em;
-    margin-top: 5px;  /* Added a small margin for better spacing */
-    display: flex;
-    justify-content: center;
-    color: #C0C0C0;
-}
-
-.mission-progress {
-    height: 10px;
-    background-color: grey;
-    width: 100%;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.mission-progress-bar {
-    height: 100%;
-    background-color: #C0C0C0;
-    width: 0%;
-    transition: width 0.2s ease;
 }

@@ -32,7 +32,7 @@ body {
 }
 
 .mission-progress {
-    width: 210px; 
+    width: 0%; 
     background-color: grey;
     height: 10px;
     position: relative;

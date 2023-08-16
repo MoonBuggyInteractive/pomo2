@@ -41,15 +41,7 @@ body {
     margin: 10px auto; /* Centering the progress bar */
 }
 
-.mission-progress-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;  /* Setting initial width to 0 */
-    background-color: #C0C0C0;
-    transition: width 0.5s;
-}
+
 
 
 .progress-container {
@@ -155,9 +147,20 @@ body {
 .mission-progress {
     display: flex;
     align-items: center; /* Vertically center the icons and progress bar */
+    justify-content: center; /* Horizontally center the items */
+    width: 100%; /* Take up full available width */
 }
 
 .mission-icon-left, .mission-icon-right {
     font-size: 24px; /* Adjust as needed */
     margin: 0 10px; /* Some spacing between the icon and the progress bar */
+}
+
+.mission-progress-bar {
+    flex-grow: 1; /* Allow the progress bar to grow and take up the available space */
+    margin: 0 10px; /* Add some spacing on the sides */
+    height: 10px;
+    background-color: grey;
+    border-radius: 5px;
+    overflow: hidden;
 }

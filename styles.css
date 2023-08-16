@@ -115,3 +115,19 @@ body {
 .reset-score-text:hover {
     color: #808080;
 }
+
+
+.mission-container {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #C0C0C0;
+}
+
+.mission-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.mission-dialogue {
+    font-size: 1.2em;
+}

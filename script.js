@@ -1,4 +1,3 @@
-// Define the total time variable (10 seconds for testing purposes)
 const TOTAL_TIME = 10; 
 
 let duration = TOTAL_TIME;
@@ -23,7 +22,12 @@ const missions = [
     {
         name: "Journey to the Moon",
         dialogue: "Travel to the moon aboard your spaceship.",
-        pointsRequired: 300
+        pointsRequired: 50
+    },
+    {
+        name: "Build a base on the moon",
+        dialogue: "Establish a permanent presence on the moon.",
+        pointsRequired: 100
     },
     // ... more missions can be added here in the future
 ];

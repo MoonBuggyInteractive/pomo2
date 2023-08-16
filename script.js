@@ -16,14 +16,25 @@ const timeEl = document.querySelector('.time');
 const progressValue = document.querySelector('.progress-ring__value');
 const scoreEl = document.querySelector('.score-value');
 
+const missions = [
+    {
+        name: "Journey to the Moon",
+        dialogue: "Travel to the moon aboard your spaceship.",
+        pointsRequired: 300
+    },
+    // ... more missions can be added here in the future
+];
+
+let currentMissionIndex = 0;
+
 window.onload = function() {
     let savedScore = localStorage.getItem('score');
     if (savedScore) {
         score = parseInt(savedScore);
         scoreEl.innerText = score;
+    }
     missionNameEl.innerText = missions[currentMissionIndex].name;
     missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
-    }
 };
 
 function setProgress(value) {
@@ -32,21 +43,6 @@ function setProgress(value) {
     progressValue.style.strokeDasharray = `${circumference} ${circumference}`;
     progressValue.style.strokeDashoffset = offset;
 }
-
-if (score >= missions[currentMissionIndex].pointsRequired && missionsCompleted == currentMissionIndex) {
-    missionsCompleted++;
-    missionsCompletedEl.innerText = missionsCompleted;
-    
-    currentMissionIndex++;
-    if (currentMissionIndex < missions.length) {
-        missionNameEl.innerText = missions[currentMissionIndex].name;
-        missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
-    } else {
-        missionNameEl.innerText = "All missions completed!";
-        missionDialogueEl.innerText = "";
-    }
-}
-
 
 playBtn.addEventListener('click', function() {
     if (playBtn.classList.contains("fa-play")) {
@@ -84,9 +80,19 @@ playBtn.addEventListener('click', function() {
                 tasksCompleted++;
                 tasksCompletedEl.innerText = tasksCompleted;
             }
-            if (score >= 300 && missionsCompleted == 0) {
-            missionsCompleted++;
-            missionsCompletedEl.innerText = missionsCompleted;
+            
+            if (score >= missions[currentMissionIndex].pointsRequired && missionsCompleted == currentMissionIndex) {
+                missionsCompleted++;
+                missionsCompletedEl.innerText = missionsCompleted;
+                
+                currentMissionIndex++;
+                if (currentMissionIndex < missions.length) {
+                    missionNameEl.innerText = missions[currentMissionIndex].name;
+                    missionDialogueEl.innerText = missions[currentMissionIndex].dialogue;
+                } else {
+                    missionNameEl.innerText = "All missions completed!";
+                    missionDialogueEl.innerText = "";
+                }
             }
 
         }, 200);

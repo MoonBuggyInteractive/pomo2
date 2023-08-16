@@ -146,21 +146,23 @@ body {
 
 .mission-progress {
     display: flex;
-    align-items: center; /* Vertically center the icons and progress bar */
-    justify-content: center; /* Horizontally center the items */
+    align-items: center;
     width: 100%; /* Take up full available width */
+    padding: 0 10px; /* Add some padding to the container */
 }
 
 .mission-icon-left, .mission-icon-right {
-    font-size: 36px; /* Adjust as needed */
-    margin: 0 100px; /* Some spacing between the icon and the progress bar */
+    font-size: 24px; /* Adjust as needed */
+    flex-shrink: 0; /* Prevent the icons from shrinking */
 }
 
 .mission-progress-bar {
-    flex-grow: 1; /* Allow the progress bar to grow and take up the available space */
-    margin: 0 10px; /* Add some spacing on the sides */
+    flex-grow: 1; /* Allow the progress bar to grow */
+    max-width: 80%; /* Set a maximum width to prevent overlap */
+    margin: 0 10px;
     height: 10px;
     background-color: grey;
     border-radius: 5px;
     overflow: hidden;
 }
+

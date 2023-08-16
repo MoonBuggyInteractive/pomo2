@@ -1,5 +1,8 @@
-let duration = 1500;
-let elapsed = 1500;
+// Define the total time variable (10 seconds for testing purposes)
+const TOTAL_TIME = 10; 
+
+let duration = TOTAL_TIME;
+let elapsed = TOTAL_TIME;
 let interval;
 let score = 0;
 let potentialScore = 0;
@@ -72,8 +75,8 @@ playBtn.addEventListener('click', function() {
                 score += potentialScore; 
                 potentialScore = 0;
                 localStorage.setItem('score', score);
-                elapsed = 1500;
-                timeEl.innerText = "25:00";
+                elapsed = TOTAL_TIME;
+                timeEl.innerText = `${Math.floor(TOTAL_TIME / 60)}:${TOTAL_TIME % 60 < 10 ? '0' : ''}${TOTAL_TIME % 60}`;
                 setProgress(100);
                 playBtn.classList.remove("fa-pause");
                 playBtn.classList.add("fa-play");
@@ -105,8 +108,8 @@ playBtn.addEventListener('click', function() {
 
 resetBtn.addEventListener('click', function() {
     clearInterval(interval);
-    elapsed = 1500;
-    timeEl.innerText = "25:00";
+    elapsed = TOTAL_TIME;
+    timeEl.innerText = `${Math.floor(TOTAL_TIME / 60)}:${TOTAL_TIME % 60 < 10 ? '0' : ''}${TOTAL_TIME % 60}`;
     setProgress(100);
     potentialScore = 0;
     scoreEl.innerText = score;

@@ -11,34 +11,14 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    min-height: 600px;
-    max-height: 100vh; /* set a maximum height */
     color: #C0C0C0;
-    overflow: auto;
-}
-
-
-.mission-container {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #C0C0C0;
-}
-
-.mission-title {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
-.mission-dialogue {
-    font-size: 1.2em;
+    width: 220px; /* Ensuring all inner elements have this width for consistency */
 }
 
 .progress-container {
     position: relative;
-    width: 50vh;  /* now based on viewport height */
-    height: 50vh; /* same as width to maintain aspect ratio */
-    max-width: 210px; /* prevent it from becoming too big on wide screens */
-    max-height: 210px; /* same as max-width to maintain aspect ratio */
+    width: 210px;
+    height: 210px;
     background-color: #333333;
     border: 5px solid #555555;
     border-radius: 50%;
@@ -47,9 +27,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-
-
 
 .progress-ring {
     position: absolute;
@@ -111,17 +88,6 @@ body {
     width: 100%;
 }
 
-.tasks-completed-container, .missions-completed-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    color: #C0C0C0;
-}
-
-.tasks-completed-container span, .missions-completed-container span {
-    margin-right: 5px;
-}
-
 .reset-score-container {
     margin-top: 20px;
     display: flex;
@@ -135,23 +101,48 @@ body {
     transition: color 0.3s ease;
 }
 
+.tasks-completed-container, .missions-completed-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: #C0C0C0;
+}
+
+.tasks-completed-container span, .missions-completed-container span {
+    margin-right: 5px;
+}
+
 .reset-score-text:hover {
     color: #808080;
 }
 
-.mission-progress-container {
-    width: 210px;
-    height: 30px;
-    background-color: #333333;
-    border: 2px solid #555555;
-    border-radius: 15px;
+.mission-container {
+    margin-top: 20px;
+    text-align: center;
+    color: #C0C0C0;
+}
+
+.mission-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.mission-dialogue {
+    font-size: 1.2em;
     margin-bottom: 10px;
+}
+
+.mission-progress {
+    height: 10px;
+    background-color: grey;
+    width: 100%;
+    border-radius: 5px;
     overflow: hidden;
 }
 
 .mission-progress-bar {
     height: 100%;
     background-color: #C0C0C0;
-    width: 0%; /* Initial value */
+    width: 0%;
+    transition: width 0.2s ease;
 }
-

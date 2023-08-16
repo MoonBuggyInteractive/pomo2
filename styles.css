@@ -31,7 +31,7 @@ body {
     color: #C0C0C0;
 }
 
-.mission-progress {
+.mission-progress-bar-container {
     width: 210px; 
     background-color: grey;
     height: 10px;

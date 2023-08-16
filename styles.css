@@ -46,9 +46,11 @@ body {
     top: 0;
     left: 0;
     height: 100%;
+    width: 50%;  /* Just setting an initial width to check visibility */
     background-color: #C0C0C0;
     transition: width 0.5s;
 }
+
 
 .progress-container {
     position: relative;

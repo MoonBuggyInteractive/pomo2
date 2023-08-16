@@ -16,13 +16,13 @@ body {
 }
 
 .progress-container {
-    position: relative;
     width: 210px;
     height: 210px;
     background-color: #333333;
     border: 5px solid #555555;
     border-radius: 50%;
     margin-bottom: 20px;
+    margin-top: 10px;  /* This is the spacer between the mission progress bar and the radial progress bar */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,8 +128,11 @@ body {
 }
 
 .mission-dialogue {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 1em;
+    margin-top: 5px;  /* Added a small margin for better spacing */
+    display: flex;
+    justify-content: center;
+    color: #C0C0C0;
 }
 
 .mission-progress {

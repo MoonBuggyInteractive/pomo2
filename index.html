@@ -12,12 +12,14 @@
     <div class="main-container">
         <div class="mission-container">
             <div class="mission-title">Mission: <span class="mission-name"></span></div>
-            <div class="mission-dialogue"></div>
-            <div class="mission-progress">
-                <i class="mission-icon-left"></i>
-                <div class="mission-progress-bar"></div>
-                <i class="mission-icon-right"></i>
+            <div class="mission-progress-container">
+                <div class="mission-icon-left"></div>
+                <div class="mission-progress-bar">
+                    <div class="mission-progress-filled"></div>
+                </div>
+                <div class="mission-icon-right"></div>
             </div>
+            <div class="mission-dialogue"></div>
         </div>
         <!-- Spacer div -->
         <div class="spacer"></div>
@@ -32,7 +34,10 @@
                     <i class="fas fa-play play-btn"></i>
                     <i class="fas fa-redo reset-btn"></i>
                 </div>
-                <div class="score"><span class="score-value">0</span> PTS</div>
+                <div class="score">
+                    <span class="score-value">0</span>
+                    <div class="score-type"></div>
+                </div>
             </div>
         </div>
         <div class="tasks-completed-container">

@@ -11,9 +11,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #C0C0C0;  /* Setting the color here for all child elements */
+    color: #C0C0C0;  
 }
 
+/* Mission styles */
 .mission-container {
     text-align: center;
     color: #C0C0C0;
@@ -27,23 +28,46 @@ body {
 
 .mission-dialogue {
     font-size: 1em;
-    margin-bottom: 10px;
+    margin-top: 10px;
     color: #C0C0C0;
 }
 
-.mission-progress {
-    width: 210px; 
-    background-color: grey;
-    height: 10px;
+.mission-progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     position: relative;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 10px auto; /* Centering the progress bar */
+}
+
+.mission-icon-left, .mission-icon-right {
+    width: 30px; 
+    height: 30px; 
+    fill: #C0C0C0; 
 }
 
 
 
+.mission-progress-bar {
+    flex-grow: 1;
+    height: 10px;
+    background-color: grey;
+    border-radius: 5px;
+    z-index: 1;
+    margin: 0 20px;  /* Add a margin to ensure the icons don't overlap */
+}
 
+
+.mission-progress-filled {
+    height: 100%;
+    width: 0%;  /* Initial width */
+    background-color: #C0C0C0;  /* Color for the filled portion */
+    border-radius: 5px;  /* Keep the corners rounded */
+    transition: width 0.5s;  /* Smooth transition */
+}
+
+
+/* Progress ring styles */
 .progress-container {
     position: relative;
     width: 210px;
@@ -75,6 +99,7 @@ body {
     transform-origin: 50% 50%;
 }
 
+/* Control styles */
 .controls {
     position: absolute;
     top: 50%;
@@ -86,17 +111,39 @@ body {
 }
 
 .time {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-bottom: 10px;
 }
 
 .score {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center children horizontally */
+    justify-content: center;  /* Center children vertically */
 }
 
-.score .score-value {
-    font-family: 'Nasalization', sans-serif;
+
+
+.score-value {
+    font-family: 'Bungee', sans-serif;
+    font-size: 1.5em;  /* Decreased font size */
+    width: 80px;  /* Fixed width to prevent jiggling */
+    text-align: center;
+}
+
+
+.score-type {
+    font-size: 0.6em;
+    color: #C0C0C0;
+    text-align: center;  /* Center the text within the element */
+}
+
+
+.icons-row {
+    display: flex;
+    justify-content: space-between;  /* This ensures that the icons are spaced out */
+    width: 100%;
+    padding: 0 20px;  /* Padding to prevent the icons from touching the edges */
 }
 
 .play-btn, .reset-btn {
@@ -110,10 +157,16 @@ body {
     color: #808080;
 }
 
-.icons-row {
+/* Other UI styles */
+.tasks-completed-container, .missions-completed-container {
+    margin-top: 10px;
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: center;
+    color: #C0C0C0;
+}
+
+.tasks-completed-container span, .missions-completed-container span {
+    margin-right: 5px;
 }
 
 .reset-score-container {
@@ -129,40 +182,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.tasks-completed-container, .missions-completed-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    color: #C0C0C0;
-}
-
-.tasks-completed-container span, .missions-completed-container span {
-    margin-right: 5px;
-}
-
 .reset-score-text:hover {
     color: #808080;
 }
-
-.mission-progress {
-    display: flex;
-    align-items: center;
-    width: 100%; /* Take up full available width */
-    padding: 0 10px; /* Add some padding to the container */
-}
-
-.mission-icon-left, .mission-icon-right {
-    font-size: 24px; /* Adjust as needed */
-    flex-shrink: 0; /* Prevent the icons from shrinking */
-}
-
-.mission-progress-bar {
-    flex-grow: 1; /* Allow the progress bar to grow */
-    max-width: 80%; /* Set a maximum width to prevent overlap */
-    margin: 0 10px;
-    height: 10px;
-    background-color: grey;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
